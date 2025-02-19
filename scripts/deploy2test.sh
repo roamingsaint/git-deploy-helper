@@ -18,7 +18,7 @@ deploy2test() {
     --source-bundle "S3Bucket=$EB_BUCKET_NAME,S3Key=$ZIP_FILE"
 
   recho aws elasticbeanstalk update-environment \
-    --environment-name "$TEST_ENV_NAME" \
+    --environment-name "$EB_TEST_ENV_NAME" \
     --version-label "$ZIP_FILE"
 
   echo "✅ Deployment to test complete!"

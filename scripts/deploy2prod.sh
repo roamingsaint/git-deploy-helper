@@ -59,8 +59,8 @@ deploy2prod() {
     fi
   done
 
-  echo "🚀 Deploying $ZIP_FILE to $PROD_ENV_NAME..."
-  recho aws elasticbeanstalk update-environment --environment-name "$PROD_ENV_NAME" --version-label "$ZIP_FILE"
+  echo "🚀 Deploying $ZIP_FILE to $EB_PROD_ENV_NAME..."
+  recho aws elasticbeanstalk update-environment --environment-name "$EB_PROD_ENV_NAME" --version-label "$ZIP_FILE"
 
   echo "✅ Deployment complete!"
 }
