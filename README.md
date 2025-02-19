@@ -25,11 +25,11 @@ Supports **AWS Elastic Beanstalk**, **S3-based deployments**, and **custom workf
 ---
 
 ## ✨ Features
-- ✅ Automates **branch merging & PR creation**  
-- 🚀 **Deploys to AWS Elastic Beanstalk** with S3-based ZIP uploads  
-- 📁 **Paginates recent builds** for easy selection  
-- 🔧 Uses a `.env` file to allow **custom environment settings**  
-- 🛠 Includes **helper functions for AWS Elastic Beanstalk**  
+- Automates **branch merging & PR creation**  
+- **Deploys to AWS Elastic Beanstalk** with S3-based ZIP uploads  
+- **Paginates recent builds** for easy selection  
+- Uses a `.env` file to allow **custom environment settings**  
+- Includes **helper functions for AWS Elastic Beanstalk**  
 
 ---
 
