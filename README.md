@@ -1,46 +1,47 @@
-# Git Deploy Helper
+# 🚀 Git Deploy Helper
 
 A simple and flexible **Git workflow automation tool** for managing deployments.  
 Supports **AWS Elastic Beanstalk**, **S3-based deployments**, and **custom workflows**.
 
 ---
 
-## Table of Contents
-- [Features](#features)
-- [Installation & Setup](#installation--setup)
-- [Git Workflow](#git-workflow)
-  - [Standard Branch Setup](#standard-branch-setup)
-  - [Creating a New Feature](#creating-a-new-feature)
-  - [Merging `dev` → `test`](#merging-dev--test)
-  - [Deploying to `test`](#deploying-to-test)
-  - [Deploying to `prod`](#deploying-to-prod)
-- [Additional Commands](#additional-commands)
-- [AWS Elastic Beanstalk Commands](#aws-elastic-beanstalk-commands)
-- [Customization](#customization)
-- [Contributing](#contributing)
-- [License](#license)
-- [Like this project?](#like-this-project)
+## 📌 Table of Contents
+- [✨ Features](#-features)
+- [⚙️ Installation & Setup](#-installation--setup)
+- [🔄 Git Workflow](#-git-workflow)
+  - [📌 Standard Branch Setup](#-standard-branch-setup)
+  - [🌱 Creating a New Feature](#-creating-a-new-feature)
+  - [🔀 Merging `dev` → `test`](#-merging-dev--test)
+  - [🛠 Deploying to `test`](#-deploying-to-test)
+  - [🚀 Managing the `release` Branch](#-managing-the-release-branch)
+  - [🚀 Deploying to `prod`](#-deploying-to-prod)
+- [⚡ Additional Commands](#-additional-commands)
+- [📡 AWS Elastic Beanstalk Commands](#-aws-elastic-beanstalk-commands)
+- [🔧 Customization](#-customization)
+- [👥 Contributing](#-contributing)
+- [📜 License](#-license)
+- [⭐ Like this project?](#-like-this-project)
 
 ---
 
-## Features
-- Automates **branch merging & PR creation**  
-- **Deploys to AWS Elastic Beanstalk** with S3-based ZIP uploads  
-- **Paginates recent builds** for easy selection  
-- Uses a `.env` file to allow **custom environment settings**  
-- Includes **helper functions for AWS Elastic Beanstalk**  
+## ✨ Features
+- ✅ Automates **branch merging & PR creation**  
+- 🚀 **Deploys to AWS Elastic Beanstalk** with S3-based ZIP uploads  
+- 📁 **Paginates recent builds** for easy selection  
+- 🔧 Uses a `.env` file to allow **custom environment settings**  
+- 🛠 Includes **helper functions for AWS Elastic Beanstalk**  
 
 ---
 
-## Installation & Setup
+## ⚙️ Installation & Setup
 
-### Clone the Repository
+### 📥 Clone the Repository
 ```bash
 git clone https://github.com/yourusername/git-deploy-helper.git
 cd git-deploy-helper
 ```
 
-### Set Up Environment Variables
+### 🔧 Set Up Environment Variables
 - The `.env` file **should be placed in your project directory**, NOT in `git-deploy-helper`.
 - Copy `.env.example` to your project folder and rename it to `.env`:
   ```bash
@@ -48,7 +49,7 @@ cd git-deploy-helper
   ```
 - Edit `.env` inside your **project folder** and set your **AWS S3 bucket**, **Elastic Beanstalk environments**, and **repo details**.
 
-### Make Scripts Globally Usable
+### 🛠 Make Scripts Globally Usable
 - Open `.bashrc` or `.bash_profile`:
   ```bash
   nano ~/.bashrc
@@ -64,9 +65,9 @@ cd git-deploy-helper
 
 ---
 
-## Git Workflow
+## 🔄 Git Workflow
 
-### Standard Branch Setup
+### 📌 Standard Branch Setup
 | Branch | Purpose |
 |--------|---------|
 | `dev` | Active development |
@@ -76,7 +77,7 @@ cd git-deploy-helper
 
 ---
 
-### Creating a New Feature
+### 🌱 Creating a New Feature
 ```bash
 git checkout dev
 git pull
@@ -90,7 +91,7 @@ git checkout -b feature/my-new-feature
 
 ---
 
-### Merging `dev` → `test`
+### 🔀 Merging `dev` → `test`
 - Merge & test new changes:
   ```bash
   dev2test
@@ -99,7 +100,7 @@ git checkout -b feature/my-new-feature
 
 ---
 
-### Deploying to `test`
+### 🛠 Deploying to `test`
 - Navigate to your project directory first:
   ```bash
   cd /path/to/your/project
@@ -119,7 +120,29 @@ git checkout -b feature/my-new-feature
 
 ---
 
-### Deploying to `prod`
+### 🚀 Managing the `release` Branch
+The `release` branch ensures **only tested and approved features** reach production.
+
+1. **Once a feature is tested in `test`, merge it into `release`**:
+   ```bash
+   git checkout release
+   git pull
+   git merge feature/my-approved-feature
+   git push origin release
+   ```
+
+2. **If multiple features are approved, merge them selectively**:
+   ```bash
+   git checkout release
+   git merge feature/feature1 feature/feature2
+   git push origin release
+   ```
+
+3. **Ensure the `release` branch always reflects what is deployed to production.**
+
+---
+
+### 🚀 Deploying to `prod`
 1. Navigate to your project directory:
    ```bash
    cd /path/to/your/project
@@ -133,9 +156,9 @@ git checkout -b feature/my-new-feature
 
 ---
 
-## Additional Commands
+## ⚡ Additional Commands
 
-### Push Directly to `dev` (Not Recommended)
+### 🔄 Push Directly to `dev` (Not Recommended)
 ```bash
 push2dev "Your commit message"
 ```
@@ -143,7 +166,7 @@ push2dev "Your commit message"
 
 ---
 
-## AWS Elastic Beanstalk Commands
+## 📡 AWS Elastic Beanstalk Commands
 - **Start the test environment (when ready for testing):**
   ```bash
   ebstart-test
@@ -156,24 +179,24 @@ push2dev "Your commit message"
 
 ---
 
-## Customization
+## 🔧 Customization
 - The `.env` file **must be inside your project directory**.
 - Modify the scripts inside `/scripts/` to fit other **deployment strategies** (e.g., Kubernetes, Docker, EC2).
 
 ---
 
-## Contributing
+## 👥 Contributing
 Open **issues & pull requests** to improve this tool!  
 Feedback is welcome. Fork the repo & make it better!
 
 ---
 
-## License
+## 📜 License
 MIT License - Free to use & modify.
 
 ---
 
-## Like this project?
-⭐ Star the repo on GitHub!  
+## ⭐ Like this project?
+Star the repo on GitHub!  
 
 **Support:** Buy me a [Coffee](https://buymeacoffee.com/roamingsaint) | [Ko-fi](https://ko-fi.com/roamingsaint)
